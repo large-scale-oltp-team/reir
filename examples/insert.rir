@@ -1,0 +1,6 @@
+define<{int:x key, int:y, int:z}> test
+transaction {
+  insert test {1, 2, 3}
+  insert test {3, 4, 2}
+  insert test {8, 2, 1}
+}

@@ -1,0 +1,5 @@
+for let x=1; x < 100; x = x + 1 {
+    for let y=1; y < 100; y = y + 1 {
+        print_int(rand(20, 100000))
+    }
+}

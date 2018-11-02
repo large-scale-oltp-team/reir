@@ -1,0 +1,3 @@
+[submodule "third_party/foedus"]
+	path = third_party/foedus
+	url = git@github.com:large-scale-oltp-team/foedus_code
