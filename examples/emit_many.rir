@@ -1,0 +1,3 @@
+for let x = 0; x < 20; x = x + 1 {
+  emit {x, x+1, x+2, x+3}
+}

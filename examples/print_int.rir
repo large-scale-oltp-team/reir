@@ -1,0 +1,5 @@
+print_int(1)
+let x = 2
+print_int(x)
+x = x + 1
+print_int(x)

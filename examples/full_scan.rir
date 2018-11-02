@@ -1,0 +1,6 @@
+define<{int:x key, int:y, int:z}> test
+transaction {
+  scan test, row {
+	emit {row.x}
+  }
+}

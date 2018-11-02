@@ -1,0 +1,27 @@
+define<{int:wid key, string(10):name, string(20):street1, string(20):street2, string(20):city, string(2): state, string(9):zip, double:tax, int:ytd}> warehouse
+
+define<{int:did key, int:wid key, string(10):name, string(20):street1, string(20):street2, string(20):city, string(2):state, string(9):zip, double:tax, int:ytd, int:next_oid}> district
+
+define<{int:cid key, int:cdid key, int:cwid key, string(16):first, string(2):middle, string(16):last, string(20):street1, string(20):street2, string(20):city, string(2):state, string(9):zip, string(16):phone, date:since, string(2):credit, int:credit_lim, int:discount, int:balance, int:ytd_payment, int:payment_cnt, int:delivery_cnt, string(500):data}> customer
+
+define<{int: hcid key, int:hcdid key, int:hcwid key, int:hdid, int:hwid, date:date, int:amount, string(24):data}> history
+
+define<{int:oid key, int:did key, int:wid key}> new_order
+
+define<{int:oid key, int:did key, int:wid key, int:cid, date:entry_d, int:carrier_id, int:ol_cnt, int:all_local}> order
+
+define<{int:oid key, int:did key, int:wid key, int:number, int:iid, int:supply_wid, date:delivery, int:quantity, int:amount, string(24):dist_info}> order_line
+
+define<{int:id key, int:imid, string(24):name, int:price, string(50):data}> item
+
+define<{int:iid key, int:wid key, int:quantity, string(24):dist01, string(24):dist02, string(24):dist03, string(24):dist04, string(24):dist05, string(24):dist06, string(24):dist07, string(24):dist08, string(24):dist09, string(24):dist10, int:ytd, int:order_cnt, int:remote_cnt, string(50):data}> stock
+
+for let wid = 0; wid < 10; wid = wid + 1 {
+    insert warehouse {wid, "first", "maple", "green", "Tokyo", "TK", "123456", 10, 10}
+    for let did = 0; did < 10; did = did + 1 {
+        insert district {did, wid, "hello", "maple", "green", "Tokyo", "TK", "123456", 10, 10}
+        for let cid = 0; cid < 10; cid = cid + 1 {
+            insert customer {cid, did, wid, "tanaka", "foo", "sato", "dear", "yellow", "Tokyo", "TK", "2121", "12312312", 10, "GC", 20, 40, 10, 300, 10, 4, "hoge"}
+        }
+    }
+}

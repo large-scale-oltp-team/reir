@@ -1,0 +1,6 @@
+define<{int:x key, int:y, int:z}> test
+transaction {
+  for let x = 0; x < 100; x = x + 1 {
+     insert test {1 + x, x*2, x*3}
+  }
+}

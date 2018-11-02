@@ -1,0 +1,11 @@
+kumagi [11:50]
+http://mapping-high-level-constructs-to-llvm-ir.readthedocs.io/en/latest/basic-constructs/constants.html
+Hi, how can I emit
+```@hello = internal constant [6 x i8] c"hello\00"```
+or
+```%struct = type { i32, i8 }```
+
+via `llvm::IRBuilder` ? I couldn't find corresponding documentation in http://llvm.org/doxygen/classllvm_1_1IRBuilder.html
+
+palotasb [4月10日 16:27]
+｀ConstantArray::get｀ as the initializer value for a ｀new GlobalVariable(...)｀ (this one is weird, but you have to use ｀operator new｀ to allocate the object on the heap, and use the overload that takes a ｀Module｀, and then the Module takes ownership and ｀delete｀s the GlobalVariable for you later). For the second, ｀StructType::get｀ will work.
