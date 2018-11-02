@@ -1,0 +1,9 @@
+define<{int:x key, int:y, int:z}> test
+transaction {
+  for let x = 1; x < 10; x = x + 1 {
+    for let y = 1; y < 10; y = y + 1 {
+      print_int(x*y)
+      insert test {x, y, x*y}
+    }
+  }
+}

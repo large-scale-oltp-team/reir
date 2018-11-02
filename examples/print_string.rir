@@ -1,0 +1,2 @@
+let str = "example string message\n"
+print_string(&str)

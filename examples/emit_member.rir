@@ -1,0 +1,7 @@
+transaction {
+    define<{int:x key, int:y, int:z}> test
+    insert test {1,2,3}
+    scan test, row {
+        emit {row.x, row.z}
+    }
+}

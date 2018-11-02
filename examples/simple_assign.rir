@@ -1,0 +1,4 @@
+let i = 1
+print_int(i)
+i = i * 21
+print_int(i)

@@ -1,0 +1,21 @@
+define<{int:x key, int:y, int:z}> test
+define<{int:x key, int:y, int:z}> hoge
+transaction {
+  for let i = 0; i < 10; i = i + 1 {
+    for let j = 1; j < 10; j = j + 1 {
+      print_int(i+j*100)
+      insert test {i+j*100, i, j*i}
+      insert hoge {i+j*300, 3 * i, j}
+    }
+  }
+}
+
+transaction {
+  for let i = 10; i < 20; i = i + 1 {
+    for let j = 10; j < 20; j = j + 1 {
+      print_int(i+j*100)
+      insert test {i+j*100, i, j*i}
+      insert hoge {i+j*300, 3 * i, j}
+    }
+  }
+}

@@ -1,0 +1,16 @@
+for let x = 0; x < 100; x = x + 1 {
+  if (x % 3) == 0 {
+    if (x % 5) == 0 {
+      print_string("FizzBuzz")
+      continue
+    } else {
+      print_string("Fizz")
+    }
+  } else {
+    if (x % 5) == 0 {
+      print_string("Buzz")
+    } else {
+      print_int(x)
+    }
+  }
+}
