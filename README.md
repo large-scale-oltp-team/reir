@@ -51,7 +51,7 @@ $ apt install ninja-build
 1. clone reir git repository
 
 ```
-$ git clone git@github.com:kumagi/reir.git
+$ git clone https://github.com/large-scale-oltp-team/reir.git
 ```
 2. update submodules with the following command to retrieve third-party code.
 
