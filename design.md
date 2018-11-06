@@ -6,7 +6,7 @@ Single Master + Multiple Slave型のアーキテクチャをとる。
 etcdが全体のコーディネーションを行う。
 基本的にはMasterがOLTPリクエストを受け付け、Slaveが全体でOLAPリクエストを処理する。
 処理の実行パスは3種類用意される。
-1. MasterTxn: Masterで更新を含むトランザクション/Users/kuro/Downloads/design.mdのログをSlaveに伝搬させ永続化させる。
+1. MasterTxn: Masterで更新を含むトランザクションのログをSlaveに伝搬させ永続化させる。
 2. ReadOnlyTxn: Slaveに含まれるサーバ群でデータを読みだしてRead-Onlyなトランザクションを実行する。
 3. DistributedTxn: SlaveとMasterが協調し同一系列のエポックの中で巨大トランザクションを並列実行する、このトランザクションは同時に1つまでしか実行できない。
 Masterのメモリの大きさが1によるトランザクション処理の限界となる。
